@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.runge_kutta_lotka_volterra.HelloController">
+        <children>
+            <Button fx:id="buttonRefresh" layoutX="14.0" layoutY="270.0" mnemonicParsing="false" onAction="#onActionButtonRefresh" prefHeight="54.0" prefWidth="68.0" text="Odswież" />
+      <ScatterChart fx:id="phaseChart" layoutX="240.0" layoutY="14.0" prefHeight="383.0" prefWidth="433.0">
+        <xAxis>
+          <NumberAxis label="ofiary" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="drapieżcy" side="LEFT" />
+        </yAxis>
+      </ScatterChart>
+      <TextField fx:id="betaTextField" layoutX="153.0" layoutY="61.0" prefHeight="20.0" prefWidth="95.0" text="0.4" />
+      <TextField fx:id="gammaTextField" layoutX="153.0" layoutY="99.0" prefHeight="25.0" prefWidth="95.0" text="0.4" />
+      <TextField layoutX="154.0" layoutY="179.0" prefHeight="25.0" prefWidth="97.0" text="20" fx:id="xTextField" />
+      <TextField fx:id="alfaTextField" layoutX="152.0" layoutY="23.0" prefHeight="25.0" prefWidth="97.0" text="1.1" />
+      <TextField fx:id="yTextField" layoutX="156.0" layoutY="220.0" prefHeight="11.0" prefWidth="95.0" text="5" />
+      <TextField fx:id="t0TextField" layoutX="156.0" layoutY="260.0" prefHeight="25.0" prefWidth="48.0" text="0" />
+      <TextField fx:id="tfTextField" layoutX="156.0" layoutY="291.0" prefHeight="25.0" prefWidth="48.0" text="70" />
+      <TextField fx:id="hTextField" layoutX="156.0" layoutY="320.0" prefHeight="25.0" prefWidth="48.0" text="1" />
+      <TextField fx:id="deltaTextField" layoutX="153.0" layoutY="142.0" prefHeight="25.0" prefWidth="95.0" text="0.1" />
+
+      <TextArea editable="false" layoutX="739.0" layoutY="382.0" prefHeight="80.0" prefWidth="333.0" style="-fx-background-color: -fx-control-inner-background;" text="Rozwiązywany układ równań :&#10;Model Lotki-Volterrry&#10;dx/dt = a*x - b*x*y&#10;dy/dt = d*x*y-g*y" />
+      <TextField editable="false" layoutX="13.0" layoutY="20.0" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: -fx-control-inner-background;" text="wprowadz alfa:" />
+      <TextField editable="false" layoutX="13.0" layoutY="60.0" prefHeight="19.0" prefWidth="137.0" style="-fx-background-color: -fx-control-inner-background;" text="wprowadz beta" />
+      <TextField editable="false" layoutX="13.0" layoutY="100.0" prefHeight="19.0" prefWidth="137.0" style="-fx-background-color: -fx-control-inner-background;" text="wprowadz gamma" />
+      <TextField editable="false" layoutX="13.0" layoutY="140.0" prefHeight="19.0" prefWidth="137.0" style="-fx-background-color: -fx-control-inner-background;" text="wprowadz delta" />
+      <TextField editable="false" layoutX="13.0" layoutY="180.0" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: -fx-control-inner-background;" text="liczebnosc ofiar" />
+      <TextField editable="false" layoutX="13.0" layoutY="220.0" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: -fx-control-inner-background;" text="liczebnosc drapieznikow" />
+      <TextField layoutX="101.0" layoutY="260.0" prefHeight="25.0" prefWidth="48.0" style="-fx-background-color: -fx-control-inner-background;" text="t0" />
+      <TextField layoutX="101.0" layoutY="289.0" prefHeight="25.0" prefWidth="48.0" style="-fx-background-color: -fx-control-inner-background;" text="tf" />
+      <TextField layoutX="101.0" layoutY="318.0" prefHeight="25.0" prefWidth="48.0" style="-fx-background-color: -fx-control-inner-background;" text="h" />
+      <TextArea fx:id="errorTextArea" layoutX="13.0" layoutY="400.0" prefHeight="98.0" prefWidth="689.0" style="-fx-background-color: -fx-control-inner-background;" text="wprowadż dane i odśwież wykres" />
+      <LineChart  fx:id="pop_time_chart" layoutX="680.0" layoutY="27.0" prefHeight="355.0" prefWidth="433.0">
+        <xAxis>
+          <NumberAxis label="czas" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis label="populacja" side="LEFT" />
+        </yAxis>
+      </LineChart>
+
+
+        </children>
+</Pane>

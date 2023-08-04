@@ -1,0 +1,7 @@
+/* jak umiesz zrobic mniejszy rozmiar kropek na wykresie to chwala ci za to,
+tylko potem pamietaj zeby dodac odwolanie do tego stylu w fxmlu w naglowku scatteredchart
+ja probowalam i nie umiem ani tu ani w fxmlu tego zrobic */
+
+.chart-symbol {
+    -fx-background-radius: 2px;
+}

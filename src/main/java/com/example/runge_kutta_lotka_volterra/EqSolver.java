@@ -3,6 +3,9 @@ import java.util.ArrayList;
 
 public class EqSolver {
     /**
+     * returns points being solution of lotka-volterra equation, for given t,x,y, equations parameters and time domain
+     * integration step is given by user. methid is runge kutta IV.
+     * when beta >>> alfa or delta >>>> gamma, method may return NaN or Inf - its just division by 0 or infinity - see wikipedia pages about RK and LV
      * zwraca punkty bedace rozwiazaniem ukladu rownan lotki volterry dla zadanych t,x,y oraz parametrow rownania i dziedziny czasu.
      * oblicza je przy pomocy algorytmu runge kutta 4 rzedu, o zadanym w parametrze kroku calkowania.
      * metoda w pewnych przypadkach, dla niektorych parametrow rowania (kiedy beta albo delta sa zbyt duze w stosunku do alfa albo gamma) moze zwracac liste zawierajaca NaN albo Inf - trzeba to wziac pod uwage podczas
@@ -13,10 +16,10 @@ public class EqSolver {
      * @param b        - beta z rownan lotki volterra
      * @param d        - delta z rownan lotki volterra
      * @param g        - gamma z rownan lotki volterra
-     * @param h        - krok calkowania
-     * @param t0       - czas poczatkowy
-     * @param tf       - czas koncowy
-     * @return ArrayList <double[]> taką że, każdy element Listy to tablica double: {t, x, y}, gdzie t - czas, x - wielkosc populacji ofiar, y -wielkosc populacji drapiezcow
+     * @param h        - krok calkowania integration point
+     * @param t0       - czas poczatkowy starting time
+     * @param tf       - czas koncowy end time
+     * @return ArrayList <double[]> taką że, każdy element Listy to tablica double: {t, x, y}, gdzie t - czas (time), x - wielkosc populacji ofiar (prey population), y -wielkosc populacji drapiezcow (carnivore population)
      **/
     public static ArrayList<double[]> callRK4LotkaVolterra(double[] initCond, double t0, double tf, double h, double a, double b, double g, double d) {
 
@@ -35,7 +38,7 @@ public class EqSolver {
 
     private static ArrayList<double[]> rk4(double[] initCond, double t0, double tf, double h, double a, double b, double g, double d) {
         ArrayList<double[]> results = new ArrayList<>();
-        double[] xn = initCond;
+        double[] xn = initCond; // i know that its redundant and that i can use initCond instead of creating new variable, but its to improve readilibity of the algoritm below
         double tn = t0;
         double[] k1, k2, k3, k4, dx;
         //System.out.println(tn + "\t" + xn[0] + " " + xn[1] + " war pocz");
@@ -57,8 +60,9 @@ public class EqSolver {
         return results;
 
     }
+// remove commentation below, if you want to run this code in browser compilator
+ //!!!!!!!!!!! odkomentuj metode ponizej , jesli chcesz wkleic ten kod w jakims internetowym kompilatorze w przegladarce i zobaczyc jak dziala
 
-    /**!!!!!!!!!!! odkomentuj metode ponizej , jesli chcesz wkleic ten kod w jakims internetowym kompilatorze w przegladarce i zobaczyc jak dziala**/
     /*
     public static void main(String[] args) {
         ArrayList<double[]> res = callRK4LotkaVolterra(new double[]{20.0, 5.0}, 0, 70, 0.1,1.1,0.4,0.4,0.1);
